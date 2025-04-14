@@ -1,5 +1,5 @@
 import numpy as np
-from search_books import search
+from query_search import search_books
 
 def precision_at_k(relevant, retrieved, k):
     """
@@ -50,18 +50,9 @@ def ndcg_at_k(relevant, retrieved, k):
     return dcg / idcg
 
 def evaluate_query(query, relevant_docs, k=10):
-    """
-    Executes a search query and computes evaluation metrics:
-    Precision@K, Recall@K, Reciprocal Rank, and NDCG@K.
-    
-    :param query: The search query as a string.
-    :param relevant_docs: A list of expected relevant document IDs (e.g., ISBNs).
-    :param k: Number of top documents to consider.
-    :return: A tuple (precision, recall, reciprocal rank, NDCG, retrieved_docs)
-    """
-    results = search(query, size=k)
-    # Extract document IDs (assuming ISBN is used as document id in the index)
-    retrieved_docs = [hit["_source"].get("ISBN") for hit in results["hits"]["hits"]]
+    results = search_books(query, size=k)
+    # Direct list of source docs
+    retrieved_docs = [doc.get("ISBN") for doc in results]
     
     prec = precision_at_k(relevant_docs, retrieved_docs, k)
     rec = recall_at_k(relevant_docs, retrieved_docs, k)
@@ -69,7 +60,7 @@ def evaluate_query(query, relevant_docs, k=10):
     ndcg = ndcg_at_k(relevant_docs, retrieved_docs, k)
     
     return prec, rec, rr, ndcg, retrieved_docs
-
+    
 def main():
     # Define sample queries and their expected relevant document ISBNs.
     # Adjust these sample queries and relevance judgments according to your data.
