@@ -11,8 +11,9 @@ def normalize(text):
 
 def is_relevant(doc, relevant_phrases):
     title = normalize(doc.get("Title", ""))
+    publisher = normalize(doc.get("Publisher", ""))
     desc = normalize(doc.get("Desc", ""))
-    return any(phrase in title or phrase in desc for phrase in relevant_phrases)
+    return any(phrase in title or phrase in publisher or phrase in desc for phrase in relevant_phrases)
 
 def precision_at_k(relevant_docs, retrieved_docs, k):
     retrieved_k = retrieved_docs[:k]
@@ -65,7 +66,10 @@ def main():
         "kitchen gods": ["the kitchen god's wife"],
         "pirates": ["pirates!"],
         "pride and prejudice": ["pride and prejudice"],
-        "beloved": ["beloved"]
+        "beloved": ["beloved"],
+        "harry": ["harry"],
+        "harry potter": ["harry potter"],
+        "random house": ["random house"]
     }
 
     k = 15
