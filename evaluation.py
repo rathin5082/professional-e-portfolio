@@ -59,7 +59,7 @@ def main():
         "beloved": ["Beloved"]
     }
 
-    k = 10
+    k = 20
     all_prec, all_rec, all_rr, all_ndcg = [], [], [], []
 
     print("Evaluation Results:\n" + "-" * 40)
