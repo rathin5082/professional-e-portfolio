@@ -1,6 +1,6 @@
 import streamlit as st
 import subprocess
-from query_search import search_books  # Assumes the updated version
+from query_search import search_books  
 
 st.title("Book Search Engine Dashboard")
 
