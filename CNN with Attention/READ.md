@@ -31,3 +31,5 @@ Modifications were made to this basic architecture. Firstly, batch normalisation
 In the accompanied code, four techniques are employed to carry out data augmentation. The first one is Jitter, done to make the model less sensitive to color and lighting variations through simulations. Following this, is Random Perspective, done to help the model
 generalize to images taken from different angles or perspectives. The third technique flips the image horizontally (by 50% probability in our case) to increase robustness of the model to horizontal symmetry. The fourth technique converts the image into a PyTorch tensor.
 Additionally, the training set consisting of 50,000 samples was further split into training and validation sets, the latter consisting of 10,000 images.
+
+Skip connections were used in the model after selective blocks. This was done to prevent vanishing gradients, aiding deep network training, to enable residual learning for simplifying optimisation, to reuse features across layers, enhancing representation, stabilising training amidst dropout and pooling. 
