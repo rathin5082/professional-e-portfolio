@@ -11,3 +11,7 @@ Key features:
 - Attention mechanism via weighted combination of block outputs.
 - Data augmentation for improved generalisation.
 - Skip connections and max pooling for deeper training stability.
+
+## Architecture
+
+Each block contains multiple parallel convolutional layers (4 layers per block) sharing the same input channels. Blocks are stacked sequentially, where the output channels of one block become the input for the next.
