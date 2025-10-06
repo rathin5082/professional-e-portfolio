@@ -14,4 +14,5 @@ Key features:
 
 ## Architecture
 
-Each block contains multiple parallel convolutional layers (4 layers per block) sharing the same input channels. Blocks are stacked sequentially, where the output channels of one block become the input for the next.
+The code accompanying this report follows the basic architecture wherein the Convolutional Neural Network layers are inside a composite unit referred to as “Intermediate block”. These layers receive the same input i.e. the in channels for the layers in a block is the same. In the code, it is 3 for the first block. This type of architectural arrangement of the layers is parallel as the layers in a block have the same input. The blocks however, are arranged in a sequential manner making the output channels from a block, say A, become the in channels for block B. To summarise, the blocks are sequential with each block consisting of convolutional layers arranged in parallel.
+The second part of the basic architecture is the computation of the weight vector. The weight vector here represents the attention weights that give an estimate of how significant the outputs from each sub-network(convolutional layer + any modifications if needed) is in regards to the final output of the block. It is given by:
