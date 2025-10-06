@@ -21,5 +21,7 @@ The second part of the basic architecture is the computation of the weight vecto
 $x = a_1 C_1(z) + a_2 C_2(z) + \dots + a_L C_L(z)$, 
 
 where $L$ = number of convolutional layers,
-$a$ = vector computed by the block
+
+$a$ = vector computed by the block,
+
 $C$ = Convolutional layer
