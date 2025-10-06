@@ -18,4 +18,8 @@ The code accompanying this report follows the basic architecture wherein the Con
 
 The second part of the basic architecture is the computation of the weight vector. The weight vector here represents the attention weights that give an estimate of how significant the outputs from each sub-network(convolutional layer + any modifications if needed) is in regards to the final output of the block. It is given by:
 
-$x = a_1 C_1(z) + a_2 C_2(z) + \dots + a_L C_L(z)$
+$x = a_1 C_1(z) + a_2 C_2(z) + \dots + a_L C_L(z)$, 
+
+where $ L $ = number of convolutional layers,
+$ a $ = vector computed by the block
+$ C $ = Convolutional layer
